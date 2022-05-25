@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::get('/send-mail', 'TestController@send');
 Route::get('/reg', 'UserController@reg');
 Route::get('/log', 'UserController@log')->name('log');
 Route::post('/signup', 'UserController@signup');
@@ -25,7 +27,7 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function()
 {
-    
+
 Route::get('/homes', 'UserController@home')->name('homes');
 Route::get('/createplan', 'PlanController@create')->name('create');
 Route::post('/saveplan', 'PlanController@saveplan')->name('saveplan');
